@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Abdoul Sawadogo - Full-Stack Developer | Python | Flask | Banking & Fintech Projects">
+    <meta name="keywords" content="developer, portfolio, python, flask, web development">
+    <title>Abdoul Sawadogo | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        nav a {
+            margin-left: 30px;
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #667eea;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .cta-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .cta-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        section h2 {
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .project-card h3 {
+            color: #667eea;
+            margin-top: 0;
+        }
+
+        .project-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .project-links a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            border: 1px solid #667eea;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .project-links a:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .skill-badge:hover {
+            transform: scale(1.05);
+        }
+
+        .contact-section {
+            text-align: center;
+        }
+
+        .contact-section a {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 1.1rem;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .contact-section a:hover {
+            color: #764ba2;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            nav {
+                display: none;
+            }
+
+            section {
+                padding: 20px;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">Abdoul</a>
+            <nav>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+                <a href="https://github.com/AB00999">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h1>Abdoul Sawadogo</h1>
+        <p>Full-Stack Developer | Python | Flask | Banking & Fintech</p>
+        <div class="cta-buttons">
+            <a href="#projects" class="cta-button cta-primary">View My Work</a>
+            <a href="#contact" class="cta-button cta-secondary">Get In Touch</a>
+        </div>
+    </div>
+
+    <main>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Family Bank</h3>
+                    <p>A comprehensive banking application built with Python and Flask. Features user authentication, account management, ATM simulation, and transaction history. Production-ready with extensive testing and security measures.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/AB00999/Family-bank-project">GitHub</a>
+                        <a href="https://ab00999.github.io/family-bank-concept/">Demo</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Corner Chair</h3>
+                    <p>A professional barbershop booking system with appointment scheduling, service showcase, and customer management. Full-stack application with responsive UI, deployed on Heroku with automated CI/CD pipelines.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/AB00999/corner-chair">GitHub</a>
+                        <a href="#barber-demo">Demo</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>Portfolio Showcase</h3>
+                    <p>Professional portfolio website showcasing all projects with modern design, responsive layout, and smooth animations. Built with vanilla HTML, CSS, and JavaScript for optimal performance.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/AB00999/Abdoul-portfolio">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-badge">Python</div>
+                <div class="skill-badge">Flask</div>
+                <div class="skill-badge">HTML5</div>
+                <div class="skill-badge">CSS3</div>
+                <div class="skill-badge">JavaScript</div>
+                <div class="skill-badge">SQLite</div>
+                <div class="skill-badge">SQLAlchemy</div>
+                <div class="skill-badge">Git</div>
+                <div class="skill-badge">GitHub</div>
+                <div class="skill-badge">Docker</div>
+                <div class="skill-badge">CI/CD</div>
+                <div class="skill-badge">AWS</div>
+                <div class="skill-badge">Heroku</div>
+                <div class="skill-badge">REST APIs</div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Get In Touch</h2>
+            <p style="font-size: 1.1rem; margin: 20px 0;">I'd love to hear from you! Feel free to reach out for opportunities or just to chat.</p>
+            <div style="margin: 30px 0;">
+                <a href="mailto:abdouls0509@gmail.com">📧 Email</a>
+                <a href="https://github.com/AB00999">🐙 GitHub</a>
+                <a href="https://www.linkedin.com/in/abdoul-sawadogo/">💼 LinkedIn</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Abdoul Sawadogo. All rights reserved. | <a href="https://github.com/AB00999" style="color: #667eea; text-decoration: none;">GitHub</a></p>
+    </footer>
+</body>
+</html>
